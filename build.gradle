@@ -27,14 +27,15 @@ group = "SauceConnectPlugin"
 gradlePlugin {
   website = "https://github.com/Karthick1110/Gradle-Sauce-Connect-Plugin"
   vcsUrl = "https://github.com/Karthick1110/Gradle-Sauce-Connect-Plugin.git"
-  description = "Test release of SauceConnectPlugin"
-
+  description = "UnOfficial release of SauceConnectPlugin"
 
   plugins {
     SauceConnectPlugin {
       id = "io.karthick.SauceConnectPlugin"
       displayName = "Sauce Connect Plugin"
       implementationClass= "com.karthick.SauceConnectPlugin"
+      description = "UnOfficial release of SauceConnectPlugin"
+      tags.addAll('SauceLabs','SauceConnect')
     }
   }
 }
