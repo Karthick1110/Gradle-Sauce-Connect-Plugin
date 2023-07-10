@@ -1,6 +1,8 @@
-package io.johnroach
+package com.karthick
 
 import groovy.json.JsonSlurper
+import org.gradle.api.tasks.Internal
+
 import java.io.File
 import java.security.MessageDigest
 import org.gradle.api.DefaultTask
@@ -11,10 +13,11 @@ import org.gradle.nativeplatform.platform.Architecture
 
 class SauceConnectDownloadTask extends DefaultTask implements SauceConnectHelper{
 
-    int KB = 1024
-    int MB = 1024*KB
-    def artifactName
+    @Internal  int KB = 1024
+    @Internal int MB = 1024*KB
+    @Internal   def artifactName
 
+    @Internal
     Map getSauceVersionInformation() {
         def sauceData
         try {

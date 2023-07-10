@@ -1,4 +1,6 @@
-package io.johnroach
+package com.karthick
+
+import org.gradle.api.tasks.Internal
 
 import java.io.File
 import org.gradle.api.DefaultTask
@@ -9,10 +11,11 @@ import org.gradle.nativeplatform.platform.Architecture
 
 class StopSauceConnectTask extends DefaultTask implements SauceConnectHelper {
 
-    String username = "$System.env.SAUCE_USERNAME"
-    String key = "$System.env.SAUCE_ACCESS_KEY"
-    String directory = "$project.buildDir"
+    @Internal  String username = "$System.env.SAUCE_USERNAME"
+    @Internal  String key = "$System.env.SAUCE_ACCESS_KEY"
+    @Internal  String directory = "$project.buildDir"
 
+    @Internal
     String getPIDNumber() {
         String pidFilePath = ""
         if(getOSType() == "win32") {
@@ -23,7 +26,7 @@ class StopSauceConnectTask extends DefaultTask implements SauceConnectHelper {
         File pidFile = new File(pidFilePath)
         return pidFile.readLines().get(0)
     }
-
+    @Internal
     String getSauceCommand() {
         if (getOSType() == "win32") {
             return "Taskkill /PID " + getPIDNumber() + " /F"

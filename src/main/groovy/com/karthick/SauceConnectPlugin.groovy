@@ -1,13 +1,14 @@
-package io.johnroach
+package com.karthick
 
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.DefaultTask
+import org.gradle.api.tasks.Internal
 
 class SauceConnectPlugin implements Plugin<Project> {
-    def String setusername
-    def String setkey
+    @Internal   def String setusername
+    @Internal def String setkey
 
     void apply(Project project) {
         project.ext.set("artifactName", "")

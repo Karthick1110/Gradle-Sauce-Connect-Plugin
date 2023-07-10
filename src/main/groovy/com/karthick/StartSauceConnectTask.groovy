@@ -1,4 +1,6 @@
-package io.johnroach
+package com.karthick
+
+import org.gradle.api.tasks.Internal
 
 import java.io.File
 import org.gradle.api.DefaultTask
@@ -6,13 +8,14 @@ import org.gradle.api.tasks.TaskAction
 import org.gradle.api.tasks.Input
 
 class StartSauceConnectTask extends DefaultTask implements SauceConnectHelper {
-    String command
-    String ready = "Sauce Connect is up, you may start your tests."
-    String directory = "$project.buildDir"
+    @Internal  String command
+    @Internal  String ready = "Sauce Connect is up, you may start your tests."
+    @Internal String directory = "$project.buildDir"
 
-    String username
-    String key
+    @Internal String username
+    @Internal  String key
 
+    @Internal
     def getSauceCommand() {
         if(getOSType() == "win32") {
             return "sc.exe " + "-u " + username + " -k " + key + " --pidfile " + directory + "\\sc\\bin\\sc.pid"
