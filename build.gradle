@@ -22,7 +22,7 @@ dependencies {
 }
 
 version = "0.0.1"
-group = "SauceConnectPlugin"
+group = "io.karthick"
 
 gradlePlugin {
   website = "https://github.com/Karthick1110/Gradle-Sauce-Connect-Plugin"
